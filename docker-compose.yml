@@ -1,0 +1,16 @@
+version: "2.4"
+
+services:
+  postgres-db:
+    container_name: postgres-db
+    image: postgres:11.6
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=tecnical_test_db
+    command: ["postgres", "-c", "log_statement=all"]
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
