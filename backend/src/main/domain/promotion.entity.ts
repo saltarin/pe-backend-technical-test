@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Promotion {
@@ -18,6 +18,9 @@ export class Promotion {
   @Column('varchar', {length: 360})
   status: number;
 
-  @CreateDateColumn({name: 'create_at'})
-  createAt: Date;
+  @CreateDateColumn({name: 'created_at'})
+  createdAt: Date;
+
+  @UpdateDateColumn({name: 'updated_at'})
+  updatedAt: Date;
 }

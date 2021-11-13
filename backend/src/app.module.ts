@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './presentation/app.controller';
-import { AppService } from './main/application/app.service';
-import { MainModule } from './main/main.module';
-import { TypeormConfig } from './config/typeorm.config';
 import { ConfigModule } from '@nestjs/config';
+import { TypeormConfig } from './config/typeorm.config';
+import { MainModule } from './main/main.module';
+import { AppController } from './presentation/app.controller';
+import { SharedModule } from './shared/shared.module';
 
 @Module({
   imports: [
@@ -11,9 +11,10 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true
     }),
     TypeormConfig.register(),
-    MainModule
+    MainModule,
+    SharedModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}
