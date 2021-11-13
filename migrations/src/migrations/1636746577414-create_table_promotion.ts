@@ -1,9 +1,8 @@
-import {MigrationInterface, QueryRunner} from "typeorm";
+import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class createTablePromotion1636746577414 implements MigrationInterface {
-
-    public async up(queryRunner: QueryRunner): Promise<void> {
-      await queryRunner.query(`
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
         CREATE TABLE "pe"."promotion" (
           id SERIAL PRIMARY KEY,
           email VARCHAR(360) UNIQUE,
@@ -14,12 +13,11 @@ export class createTablePromotion1636746577414 implements MigrationInterface {
           updated_at timestamp
         );
       `);
-    }
+  }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-      await queryRunner.query(`
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
         drop table "pe"."promotion";
       `);
-    }
-
+  }
 }

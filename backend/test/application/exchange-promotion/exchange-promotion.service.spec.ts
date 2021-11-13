@@ -3,7 +3,7 @@ import { PromotionStatus } from '@/domain/promotion-status';
 import { Promotion } from '@/domain/promotion.entity';
 import {
   MockType,
-  repositoryMockFactory
+  repositoryMockFactory,
 } from '@/test/mocks/repository-mock-factory';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
@@ -30,13 +30,19 @@ describe('create-promotion.service', () => {
   });
 
   it('WHEN exchangePromotion no find  THEN throw an error', () => {
-    promotionRepositoryMock.findOne.mockImplementation(() => Promise.resolve(undefined));
-    expect(service.exchangePromotion).rejects.toThrow(Error)
+    promotionRepositoryMock.findOne.mockImplementation(() =>
+      Promise.resolve(undefined),
+    );
+    expect(service.exchangePromotion).rejects.toThrow(Error);
   });
 
-  it('WHEN exchangePromotion can\'t save status THEN throw an error', async () => {
-    promotionRepositoryMock.findOne.mockImplementation(() => Promise.resolve({status: PromotionStatus.GENERATED} as Promotion));
-    promotionRepositoryMock.save.mockImplementation(() => { throw new Error() });
+  it("WHEN exchangePromotion can't save status THEN throw an error", async () => {
+    promotionRepositoryMock.findOne.mockImplementation(() =>
+      Promise.resolve({ status: PromotionStatus.GENERATED } as Promotion),
+    );
+    promotionRepositoryMock.save.mockImplementation(() => {
+      throw new Error();
+    });
     expect(service.exchangePromotion).rejects.toThrow(Error);
     const request = { email: 'a@a.com' };
     const updatedPromotion = await service.exchangePromotion(request);

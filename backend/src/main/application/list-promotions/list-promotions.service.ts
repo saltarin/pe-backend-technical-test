@@ -7,12 +7,13 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class ListPromotionsService {
   constructor(
-    @InjectRepository(Promotion) private readonly promotionService: Repository<Promotion>
+    @InjectRepository(Promotion)
+    private readonly promotionService: Repository<Promotion>,
   ) {}
 
   async listPromotions(status: PromotionStatus) {
     try {
-      const a = await this.promotionService.find({status});
+      const a = await this.promotionService.find({ status });
       return a;
     } catch (error) {
       throw error;

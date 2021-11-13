@@ -1,4 +1,4 @@
-import { BaseResponse } from "src/shared/application/base-response";
+import { BaseResponse } from 'src/shared/application/base-response';
 
 interface Data {
   code: string;

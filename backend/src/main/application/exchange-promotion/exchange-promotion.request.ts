@@ -1,4 +1,4 @@
-import { IsString, IsEmail, MaxLength, MinLength } from 'class-validator';
+import { IsEmail, IsString } from 'class-validator';
 
 export class ExchangePromotionRequest {
   @IsString()

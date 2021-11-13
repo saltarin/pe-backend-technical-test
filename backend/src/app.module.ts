@@ -8,11 +8,11 @@ import { SharedModule } from './shared/shared.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
     TypeormConfig.register(),
     MainModule,
-    SharedModule
+    SharedModule,
   ],
   controllers: [AppController],
   providers: [],

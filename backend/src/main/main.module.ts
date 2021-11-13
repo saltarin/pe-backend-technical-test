@@ -6,18 +6,16 @@ import { ListPromotionsService } from './application/list-promotions/list-promot
 import { Promotion } from './domain/promotion.entity';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Promotion]),
-  ],
+  imports: [TypeOrmModule.forFeature([Promotion])],
   providers: [
     CreatePromotionService,
     ExchangePromotionService,
-    ListPromotionsService
+    ListPromotionsService,
   ],
   exports: [
     CreatePromotionService,
     ExchangePromotionService,
-    ListPromotionsService
-  ]
+    ListPromotionsService,
+  ],
 })
 export class MainModule {}

@@ -9,15 +9,15 @@ import { ExchangePromotionRequest } from './exchange-promotion.request';
 export class ExchangePromotionService {
   constructor(
     @InjectRepository(Promotion)
-    private readonly promotionService: Repository<Promotion>
+    private readonly promotionService: Repository<Promotion>,
   ) {}
 
   public async exchangePromotion(request: ExchangePromotionRequest) {
     try {
       const promotion = await this.promotionService.findOne({
-        email: request.email
+        email: request.email,
       });
-      if(!promotion) {
+      if (!promotion) {
         throw new Error('Promotion not found');
       }
       promotion.status = PromotionStatus.EXCHANGED;

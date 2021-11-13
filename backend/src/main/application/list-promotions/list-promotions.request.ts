@@ -1,3 +1,1 @@
-export class ListPromotionsRequest {
-  
-}
+export class ListPromotionsRequest {}

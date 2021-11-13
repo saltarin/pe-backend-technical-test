@@ -84,21 +84,21 @@ describe('list-promotions.service', () => {
     let status = PromotionStatus.GENERATED;
     let promotions = await service.listPromotions(status);
     expect(promotions.length).toBe(2);
-    promotions.forEach((promotion) =>
+    promotions.forEach(promotion =>
       expect(promotion.status).toBe(PromotionStatus.GENERATED),
     );
 
     status = PromotionStatus.EXCHANGED;
     promotions = await service.listPromotions(status);
     expect(promotions.length).toBe(1);
-    promotions.forEach((promotion) =>
+    promotions.forEach(promotion =>
       expect(promotion.status).toBe(PromotionStatus.EXCHANGED),
     );
 
     status = undefined;
     promotions = await service.listPromotions(null);
     expect(promotions.length).toBe(3);
-    promotions.forEach((promotion) =>
+    promotions.forEach(promotion =>
       expect([PromotionStatus.GENERATED, PromotionStatus.EXCHANGED]).toContain(
         promotion.status,
       ),
@@ -107,14 +107,15 @@ describe('list-promotions.service', () => {
 
   it('WHEN listPromotions invoked without data THEN return empty array', async () => {
     promotionRepositoryMock.find.mockImplementation(() => []);
-    let status = PromotionStatus.GENERATED;
-    let promotions = await service.listPromotions(status);
+    const status = PromotionStatus.GENERATED;
+    const promotions = await service.listPromotions(status);
     expect(promotions.length).toBe(0);
   });
 
   it('WHEN listPromotions fails THEN throw error', async () => {
-    promotionRepositoryMock.find.mockImplementation(() => {throw new Error()});
-    let status = PromotionStatus.GENERATED;    
+    promotionRepositoryMock.find.mockImplementation(() => {
+      throw new Error();
+    });
     expect(service.listPromotions).rejects.toThrow(TypeError);
   });
 });

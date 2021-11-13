@@ -9,7 +9,7 @@ import { CreatePromotionRequest } from './create-promotion.request';
 export class CreatePromotionService {
   constructor(
     @InjectRepository(Promotion)
-    private readonly promotionService: Repository<Promotion>
+    private readonly promotionService: Repository<Promotion>,
   ) {}
 
   public async createPromotion(request: CreatePromotionRequest) {
@@ -17,7 +17,7 @@ export class CreatePromotionService {
       const newPromotion = this.promotionService.create({
         email: request.email,
         name: request.name,
-        status: PromotionStatus.GENERATED
+        status: PromotionStatus.GENERATED,
       });
       return await this.promotionService.save(newPromotion);
     } catch (error) {
@@ -29,7 +29,7 @@ export class CreatePromotionService {
     const codeLength = 10;
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
     const charactersLength = characters.length;
-    const randomCharacterReducer = (current, next) => {
+    const randomCharacterReducer = current => {
       const randomIndex = Math.floor(Math.random() * charactersLength);
       return current + characters[randomIndex];
     };
