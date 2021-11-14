@@ -6,13 +6,15 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { convertToUtc, formatDatetime } from 'src/shared/dayjs';
+import { convertToUtc, formatDatetime } from '@/shared/dayjs';
 import { TypeORMError } from 'typeorm';
 import { ExchangePromotionResponse } from './exchange-promotion.response';
 
 export class ExchangePromotionAdapter {
   static toResponse(promotion: Promotion): ExchangePromotionResponse {
-    const updatedAt = formatDatetime(convertToUtc(promotion.updatedAt, -5));
+    const updatedAt = formatDatetime(
+      convertToUtc(promotion.updatedAt.getTime(), -5),
+    );
     return {
       code: HttpStatus.OK,
       message: '',

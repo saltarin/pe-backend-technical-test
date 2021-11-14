@@ -22,6 +22,7 @@ export class CreatePromotionService {
       });
       return await this.promotionService.save(newPromotion);
     } catch (error) {
+      console.log(error.message);
       throw error;
     }
   }

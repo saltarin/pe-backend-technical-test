@@ -1,0 +1,16 @@
+entity: Promotion
+items:
+  promotion1:
+    email: 'a@a.com'
+    name: 'mako'
+    promoCode: CODIGO
+    status: 1
+    createdAt: '{{date.recent}}'
+    updatedAt: '{{date.recent}}'
+  promotion{2..4}:
+    email: '{{internet.email}}'
+    name: '{{name.firstName}} {{name.lastName}}'
+    promoCode: CODIGO
+    status: 1
+    createdAt: '{{date.recent}}'
+    updatedAt: '{{date.recent}}'

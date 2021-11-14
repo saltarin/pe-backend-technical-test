@@ -1,0 +1,30 @@
+entity: Promotion
+items:
+  promotion1:
+    email: 'mako1@list.edu'
+    name: 'mako1'
+    promoCode: CODIGO
+    status: 1
+    createdAt: '2021-11-14 21:02:05'
+    updatedAt: '2021-11-14 21:02:05'
+  promotion2:
+    email: 'mako2@list.edu'
+    name: 'mako2'
+    promoCode: CODIGO
+    status: 1
+    createdAt: '2021-11-14 21:02:05'
+    updatedAt: '2021-11-14 21:02:05'
+  promotion3:
+    email: 'mako3@list.edu'
+    name: 'mako3'
+    promoCode: CODIGO
+    status: 2
+    createdAt: '2021-11-14 21:02:05'
+    updatedAt: '2021-11-14 21:02:05'
+  promotion4:
+    email: 'mako4@list.edu'
+    name: 'mako4'
+    promoCode: CODIGO
+    status: 2
+    createdAt: '2021-11-14 21:02:05'
+    updatedAt: '2021-11-14 21:02:05'

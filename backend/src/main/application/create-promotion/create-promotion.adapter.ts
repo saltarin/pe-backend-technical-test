@@ -5,13 +5,15 @@ import {
   HttpStatus,
   InternalServerErrorException,
 } from '@nestjs/common';
-import { convertToUtc, formatDatetime } from 'src/shared/dayjs';
+import { convertToUtc, formatDatetime } from '@/shared/dayjs';
 import { TypeORMError } from 'typeorm';
 import { CreatePromotionResponse } from './create-promotion.response';
 
 export class CreatePromotionAdapter {
   static toResponse(promotion: Promotion): CreatePromotionResponse {
-    const createdAt = formatDatetime(convertToUtc(promotion.updatedAt, -5));
+    const createdAt = formatDatetime(
+      convertToUtc(promotion.updatedAt.getTime(), -5),
+    );
     return {
       code: HttpStatus.CREATED,
       message: 'Ok',
@@ -35,7 +37,6 @@ export class CreatePromotionAdapter {
       code: HttpStatus.INTERNAL_SERVER_ERROR,
       message: '',
     };
-    console.log('');
     if (error instanceof TypeORMError) {
       response.message = 'No se pudo crear el registro';
       response.code = HttpStatus.INTERNAL_SERVER_ERROR;
