@@ -39,7 +39,20 @@ services:
     environment:
       - NODE_ENV=development
     ports:
-      - 3000:3000
+      - 8080:8080
     volumes:
       - ./backend:/app
     command: [npm, run, start:dev]
+
+  frontend:
+    container_name: frontend
+    build:
+      context: docker
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+    command: [npm, run, dev]
