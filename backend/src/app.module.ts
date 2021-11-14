@@ -4,6 +4,7 @@ import { TypeormConfig } from './config/typeorm.config';
 import { MainModule } from './main/main.module';
 import { AppController } from './presentation/app.controller';
 import { SharedModule } from './shared/shared.module';
+import { PromotionsController } from './presentation/promotions.controller';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { SharedModule } from './shared/shared.module';
     MainModule,
     SharedModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, PromotionsController],
   providers: [],
 })
 export class AppModule {}

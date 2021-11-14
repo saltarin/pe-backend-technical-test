@@ -18,10 +18,11 @@ export class CreatePromotionService {
         email: request.email,
         name: request.name,
         status: PromotionStatus.GENERATED,
+        promoCode: this.generateCode(),
       });
       return await this.promotionService.save(newPromotion);
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 

@@ -44,10 +44,6 @@ describe('create-promotion.service', () => {
       throw new Error();
     });
     expect(service.exchangePromotion).rejects.toThrow(Error);
-    const request = { email: 'a@a.com' };
-    const updatedPromotion = await service.exchangePromotion(request);
-    expect(promotionRepositoryMock.findOne).toBeCalledTimes(1);
-    expect(updatedPromotion).toBeInstanceOf(Error);
   });
 
   it('WHEN exchangePromotion save status THEN return promotion', async () => {

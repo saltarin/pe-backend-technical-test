@@ -82,21 +82,21 @@ describe('list-promotions.service', () => {
     });
 
     let status = PromotionStatus.GENERATED;
-    let promotions = await service.listPromotions(status);
+    let promotions = await service.listPromotions({ status });
     expect(promotions.length).toBe(2);
     promotions.forEach(promotion =>
       expect(promotion.status).toBe(PromotionStatus.GENERATED),
     );
 
     status = PromotionStatus.EXCHANGED;
-    promotions = await service.listPromotions(status);
+    promotions = await service.listPromotions({ status });
     expect(promotions.length).toBe(1);
     promotions.forEach(promotion =>
       expect(promotion.status).toBe(PromotionStatus.EXCHANGED),
     );
 
     status = undefined;
-    promotions = await service.listPromotions(null);
+    promotions = await service.listPromotions({ status: null });
     expect(promotions.length).toBe(3);
     promotions.forEach(promotion =>
       expect([PromotionStatus.GENERATED, PromotionStatus.EXCHANGED]).toContain(
@@ -108,7 +108,7 @@ describe('list-promotions.service', () => {
   it('WHEN listPromotions invoked without data THEN return empty array', async () => {
     promotionRepositoryMock.find.mockImplementation(() => []);
     const status = PromotionStatus.GENERATED;
-    const promotions = await service.listPromotions(status);
+    const promotions = await service.listPromotions({ status });
     expect(promotions.length).toBe(0);
   });
 

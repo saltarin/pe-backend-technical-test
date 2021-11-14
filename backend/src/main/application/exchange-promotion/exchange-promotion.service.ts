@@ -23,7 +23,7 @@ export class ExchangePromotionService {
       promotion.status = PromotionStatus.EXCHANGED;
       return await this.promotionService.save(promotion);
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 }

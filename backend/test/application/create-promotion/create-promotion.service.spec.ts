@@ -41,19 +41,14 @@ describe('create-promotion.service.ts', () => {
     });
     expect(promotionRepositoryMock.create).toBeCalledTimes(1);
     expect(promotionRepositoryMock.save).toBeCalledTimes(1);
-    expect(service.createPromotion).not.toThrow(Error);
     expect(newPromotion).toBeInstanceOf(Promotion);
   });
 
   it('WHEN createPromotion fails THEN throws error', async () => {
-    promotionRepositoryMock.create = undefined;
-    const newPromotion = await service.createPromotion({
-      email: 'a@a.com',
-      name: 'mako',
+    promotionRepositoryMock.create.mockImplementation(() => {
+      throw new Error();
     });
-    expect(newPromotion).toBeInstanceOf(Error);
-    expect(newPromotion).toBeInstanceOf(TypeError);
-    expect(promotionRepositoryMock.save).toBeCalledTimes(0);
+    expect(service.createPromotion).rejects.toThrow(Error);
   });
 
   it('WHEN generateCode is invoked THEN generate random string length 10', () => {

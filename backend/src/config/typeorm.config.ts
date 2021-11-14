@@ -18,9 +18,13 @@ export class TypeormConfig {
           username: configService.get<string>('DATABASE_USER'),
           password: configService.get<string>('DATABASE_PASSWORD'),
           entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+          migrations: [__dirname + '/../src/migrations/*{.ts,.js}'],
           logging: true,
           synchronize: false,
           migrationsRun: false,
+          cli: {
+            migrationsDir: 'src/migrations',
+          },
         } as ConnectionOptions),
     });
   }
