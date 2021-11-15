@@ -36,6 +36,7 @@ describe('GET /promotions', () => {
         {
           email: 'mako1@list.edu',
           name: 'mako1',
+          code: 'CODIGO',
           status: 1,
           createdAt: '21:02:05 14/11/2021',
           lastUpdateAt: '21:02:05 14/11/2021',
@@ -43,6 +44,7 @@ describe('GET /promotions', () => {
         {
           email: 'mako2@list.edu',
           name: 'mako2',
+          code: 'CODIGO',
           status: 1,
           createdAt: '21:02:05 14/11/2021',
           lastUpdateAt: '21:02:05 14/11/2021',

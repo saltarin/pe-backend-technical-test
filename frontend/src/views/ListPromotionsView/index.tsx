@@ -61,6 +61,7 @@ export const ListPromotionsView = () => {
                 <th>Email</th>
                 <th>Nombre</th>
                 <th>Estado</th>
+                <th>Codigo</th>
               </tr>
             </thead>
             <tbody>
@@ -71,6 +72,7 @@ export const ListPromotionsView = () => {
                       <td>{item.email}</td>
                       <td>{item.name}</td>
                       <td>{item.status === 1 ? 'GENERADO' : 'CANJEADO'}</td>
+                      <td>{item.code}</td>
                     </tr>
                   );
                 })}

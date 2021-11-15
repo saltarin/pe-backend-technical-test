@@ -25,6 +25,7 @@ export class ListPromotionsAdapter {
         return {
           email: promotion.email,
           name: promotion.name,
+          code: promotion.promoCode,
           status: promotion.status,
           createdAt,
           lastUpdateAt,
