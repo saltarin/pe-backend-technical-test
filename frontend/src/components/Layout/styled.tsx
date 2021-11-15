@@ -12,7 +12,7 @@ export const NavigationLayout = styled.div`
   width: 256px;
   height: 100%;
   background-color: ${COLORS.LIGHT_GRAY};
-  box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+  box-shadow: 6px 0px 18px rgba(244, 244, 244, 0.8);
 `;
 
 export const WrapperContentLayout = styled.div`

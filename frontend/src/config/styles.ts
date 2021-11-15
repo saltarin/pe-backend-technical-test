@@ -1,4 +1,12 @@
+import { COLORS } from '../ui/colors';
+
 export const STYLES = `
+
+  html {
+    font-family: Roboto;
+    color: ${COLORS.BLACK};
+  }
+
   * {
     box-sizing: border-box;
     margin: 0;

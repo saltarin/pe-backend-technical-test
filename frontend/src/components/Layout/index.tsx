@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigation } from '../Navigation';
 import {
   NavigationLayout,
   WrapperContentLayout,
@@ -9,8 +10,7 @@ export const Layout: React.FC = ({ children }) => {
   return (
     <LayoutWrapper>
       <NavigationLayout>
-        {/* <Navigation /> */}
-        navigation
+        <Navigation />
       </NavigationLayout>
       <WrapperContentLayout>{children}</WrapperContentLayout>
     </LayoutWrapper>
