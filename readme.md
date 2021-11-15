@@ -21,3 +21,7 @@ make up
 ```sh
 make down
 ```
+
+[backend](http://localhost:8080/)
+
+[frontend](http://localhost:3000/)
