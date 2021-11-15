@@ -7,7 +7,7 @@ import { ExchangePromotionService } from '@/application/exchange-promotion/excha
 import { ListPromotionsAdapter } from '@/application/list-promotions/list-promotions.adapter';
 import { ListPromotionsRequest } from '@/application/list-promotions/list-promotions.request';
 import { ListPromotionsService } from '@/application/list-promotions/list-promotions.service';
-import { Body, Controller, Get, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Get, Patch, Post, Query } from '@nestjs/common';
 
 @Controller('promotions')
 export class PromotionsController {
@@ -46,11 +46,9 @@ export class PromotionsController {
   }
 
   @Get()
-  async listPromotions(@Body() request: ListPromotionsRequest) {
+  async listPromotions(@Query() query: ListPromotionsRequest) {
     try {
-      const promotion = await this.listPromotionsService.listPromotions(
-        request,
-      );
+      const promotion = await this.listPromotionsService.listPromotions(query);
       const response = ListPromotionsAdapter.toResponse(promotion);
       return response;
     } catch (error) {

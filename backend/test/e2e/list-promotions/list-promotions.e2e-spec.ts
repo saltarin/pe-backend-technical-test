@@ -1,4 +1,3 @@
-import { ListPromotionsRequest } from '@/application/list-promotions/list-promotions.request';
 import { ListPromotionsResponse } from '@/application/list-promotions/list-promotions.response';
 import { initializeTestingModule } from '@/test/mocks/initialize-testing-module';
 import { loadFixtures, unloadFixures } from '@/test/mocks/typeorm-fixures';
@@ -26,7 +25,9 @@ describe('GET /promotions', () => {
       getConnection(),
       path.join(__dirname, './list-promotions.fixture.yml'),
     );
-    const request: ListPromotionsRequest = {};
+    const queryString = new URLSearchParams({
+      status: '1',
+    });
     const response: ListPromotionsResponse = {
       code: 200,
       message: '',
@@ -46,25 +47,10 @@ describe('GET /promotions', () => {
           createdAt: '21:02:05 14/11/2021',
           lastUpdateAt: '21:02:05 14/11/2021',
         },
-        {
-          email: 'mako3@list.edu',
-          name: 'mako3',
-          status: 2,
-          createdAt: '21:02:05 14/11/2021',
-          lastUpdateAt: '21:02:05 14/11/2021',
-        },
-        {
-          email: 'mako4@list.edu',
-          name: 'mako4',
-          status: 2,
-          createdAt: '21:02:05 14/11/2021',
-          lastUpdateAt: '21:02:05 14/11/2021',
-        },
       ],
     };
     return supertest(app.getHttpServer())
-      .get('/promotions')
-      .send(request)
+      .get(`/promotions?${queryString}`)
       .expect(200)
       .expect(response);
   });
