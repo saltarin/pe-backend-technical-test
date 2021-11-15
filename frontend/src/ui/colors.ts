@@ -3,5 +3,7 @@ export enum COLORS {
   YELLOW = '#FAC913',
   GRAY = '#858585',
   LIGHT_GRAY = '#F4F4F4',
-  WHITE = '#fff'
+  WHITE = '#fff',
+  GREEN = '#009D19',
+  RED = '#FF5050'
 }

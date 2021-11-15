@@ -39,11 +39,20 @@ export class ExchangePromotionAdapter {
       message: '',
     };
     if (error.message === 'Promotion not found') {
-      response.message = 'No se encontro el registro';
+      response.message = 'No se encontro la promocion';
       response.code = HttpStatus.NOT_FOUND;
       return new NotFoundException(response);
     }
-
+    if (error.message === 'Promotion already exchanged') {
+      response.message = 'La promocion ya fue canjeada';
+      response.code = HttpStatus.BAD_REQUEST;
+      return new NotFoundException(response);
+    }
+    if (error.message === 'Promotion code invalid') {
+      response.message = 'El codigo es invalido';
+      response.code = HttpStatus.BAD_REQUEST;
+      return new NotFoundException(response);
+    }
     if (error instanceof TypeORMError) {
       response.message = 'No se pudo actualizar el registro';
       response.code = HttpStatus.INTERNAL_SERVER_ERROR;

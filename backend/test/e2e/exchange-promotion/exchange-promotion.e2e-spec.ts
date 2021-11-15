@@ -29,13 +29,14 @@ describe('PATCH /promotions', () => {
     );
     const request: ExchangePromotionRequest = {
       email: 'mako@exchange.com',
+      code: 'CODIGO1234',
     };
     const response: ExchangePromotionResponse = {
       code: 200,
       message: '',
       error: false,
       data: {
-        code: 'CODIGO',
+        code: 'CODIGO1234',
         email: 'mako@exchange.com',
         name: 'mako',
         updatedAt: formatDatetime(convertToUtc(new Date().getTime(), 0)),

@@ -20,6 +20,12 @@ export class ExchangePromotionService {
       if (!promotion) {
         throw new Error('Promotion not found');
       }
+      if (promotion.status === PromotionStatus.EXCHANGED) {
+        throw new Error('Promotion already exchanged');
+      }
+      if (promotion.promoCode !== request.code) {
+        throw new Error('Promotion code invalid');
+      }
       promotion.status = PromotionStatus.EXCHANGED;
       return await this.promotionService.save(promotion);
     } catch (error) {

@@ -49,7 +49,7 @@ describe('create-promotion.service', () => {
   it('WHEN exchangePromotion save status THEN return promotion', async () => {
     promotionRepositoryMock.findOne.mockImplementation(() => new Promotion());
     promotionRepositoryMock.save.mockImplementation(() => new Promotion());
-    const request = { email: 'a@a.com' };
+    const request = { email: 'a@a.com', code: undefined };
     const updatedPromotion = await service.exchangePromotion(request);
     expect(updatedPromotion).toBeInstanceOf(Promotion);
   });

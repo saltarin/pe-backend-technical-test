@@ -3,7 +3,7 @@ items:
   promotion1:
     email: 'mako@exchange.com'
     name: 'mako'
-    promoCode: CODIGO
+    promoCode: CODIGO1234
     status: 1
     createdAt: '2021-11-14 21:02:05'
     updatedAt: '2021-11-14 21:02:05'

@@ -15,6 +15,12 @@ async function bootstrap() {
     }),
   );
   app.useGlobalFilters(new ValidationFilter());
+  app.enableCors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type, Accept, Authorization',
+    exposedHeaders: 'Content-Disposition',
+  });
   await app.listen(8080);
 }
 bootstrap();

@@ -1,6 +1,13 @@
 import { Layout } from '../src/components/Layout';
 import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 export default function ListPromotions() {
-  return <Layout>List Promotions</Layout>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Layout>ListPromotions</Layout>
+    </QueryClientProvider>
+  );
 }
