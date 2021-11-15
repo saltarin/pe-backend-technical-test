@@ -1,11 +1,11 @@
-import React from 'react';
-import { StyledButton } from './styled';
+import styled from 'styled-components';
+import { COLORS } from '../../ui/colors';
 
-export const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> =
-  ({ children, className, ...rest }) => {
-    return (
-      <StyledButton className={className} {...rest}>
-        {children}
-      </StyledButton>
-    );
-  };
+export const Button = styled.button`
+  background-color: ${COLORS.BLACK};
+  outline: 0;
+  padding: 11px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.25);
+  color: ${COLORS.WHITE};
+`;

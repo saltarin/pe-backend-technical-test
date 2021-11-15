@@ -30,8 +30,8 @@ export class PromotionService {
     try {
       const queryParams = new URLSearchParams(request);
       const url = String(process.env.NEXT_PUBLIC_API_BACKEND_PROMOTIONS);
-      const { data } = await axios.get(url + '?' + queryParams);
-      return data;
+      const { data } = await axios.get(`${url}?${queryParams}`);
+      return data.data;
     } catch (error: any) {
       if (axios.isAxiosError(error) && error?.response?.data) {
         throw new Error(error?.response?.data?.message || 'Server Error');

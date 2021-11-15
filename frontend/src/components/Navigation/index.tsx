@@ -17,6 +17,13 @@ export const Navigation = () => {
         <section>
           <ul>
             <li>
+              <Link href="/list-promotions" passHref>
+                <PageLink pathname={router.pathname}>
+                  Listar promociones
+                </PageLink>
+              </Link>
+            </li>
+            <li>
               <Link href="/create-promotion" passHref>
                 <PageLink pathname={router.pathname}>
                   Registrar promocion
@@ -27,13 +34,6 @@ export const Navigation = () => {
               <Link href="/exchange-promotion" passHref>
                 <PageLink pathname={router.pathname}>
                   Canjear promocion
-                </PageLink>
-              </Link>
-            </li>
-            <li>
-              <Link href="/list-promotions" passHref>
-                <PageLink pathname={router.pathname}>
-                  Listar promociones
                 </PageLink>
               </Link>
             </li>

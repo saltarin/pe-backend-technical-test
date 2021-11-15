@@ -13,8 +13,7 @@ export class ListPromotionsService {
 
   async listPromotions(request: ListPromotionsRequest) {
     try {
-      const a = await this.promotionService.find(request);
-      return a;
+      return await this.promotionService.find(request);
     } catch (error) {
       throw error;
     }

@@ -1,8 +1,13 @@
 import { PromotionStatus } from '@/domain/promotion-status';
-import { IsEnum, IsOptional } from 'class-validator';
+import { IsEmail, IsIn, IsOptional, IsString } from 'class-validator';
 
 export class ListPromotionsRequest {
   @IsOptional()
-  @IsEnum(PromotionStatus)
+  @IsIn([PromotionStatus.GENERATED, PromotionStatus.EXCHANGED])
   status?: PromotionStatus;
+
+  @IsOptional()
+  @IsString()
+  @IsEmail()
+  email?: string;
 }

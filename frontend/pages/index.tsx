@@ -1,6 +1,11 @@
 import { Layout } from '../src/components/Layout';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Home() {
-  return <Layout>PAGINA INICIAL</Layout>;
+  const router = useRouter();
+  useEffect(() => {
+    router.push('/list-promotions');
+  }, []);
+  return <Layout></Layout>;
 }
